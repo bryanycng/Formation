@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  attr_accessor :name, :email
-
 	def new
 		@user = User.new
 	end
@@ -22,6 +20,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 
-    has_secure_password
 
 end
