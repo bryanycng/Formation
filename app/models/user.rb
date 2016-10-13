@@ -5,8 +5,15 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  has_secure_password
+
+  #allows pictures using paperclip/some validations
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, 
+  :default_url => ActionController::Base.helpers.asset_path(':style/blank_profile_pic.png')
+  validates_attachment :avatar,
+  content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+
 
   # Returns the hash digest of the given string.
   def User.digest(string)
