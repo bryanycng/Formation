@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def teams
+    @teams = User.find(params[:id]).teams
+    @user = User.find(params[:id])
+  end
+
   private
 
     def user_params

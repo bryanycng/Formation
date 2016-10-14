@@ -9,6 +9,10 @@ class TeamsController < ApplicationController
   	end
 
 	def new
+		if !logged_in?
+      		flash[:danger] = "Not logged in"
+      		redirect_to login_path
+      	end
 		@team = Team.new
 	end
 
@@ -18,6 +22,7 @@ class TeamsController < ApplicationController
 
 	def create
   		@team = Team.new(team_params)
+  		@team.user = current_user
  
 	  	if @team.save
   			redirect_to @team

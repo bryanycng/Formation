@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :teams
-  resources :users
+  resources :users do
+  	member do
+  	 	get 'teams'
+ 	end
+  end
+  resources :players
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
