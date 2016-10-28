@@ -44,6 +44,6 @@ class PlayersController < ApplicationController
 
 	private 
 		def player_params
-			params.require(:player).permit(:title, :text)
+			params.require(:player).permit(:name, :file, :element, :star)
 		end
 end

@@ -1,12 +1,16 @@
 <h1>Listing Players</h1>
+
 <table>
   <tr>
-    <th>Players</th>
+    <th>player</th>
+    <th>star</th>
   </tr>
  
   <% @players.each do |player| %>
     <tr>
       <td><%= player.name %></td>
+      <td><%= player.star %></td>
+      <td><%= link_to 'Show', player_path(player) %></td>
     </tr>
   <% end %>
 </table>

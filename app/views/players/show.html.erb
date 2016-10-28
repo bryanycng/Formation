@@ -1,0 +1,25 @@
+<p>
+  <strong>Player:</strong>
+  <%= @player.name %>
+</p>
+ 
+<p>
+  <strong>file:</strong>
+  <%= @player.file %>
+</p>
+
+<p>
+  <strong>element:</strong>
+  <%= @player.element %>
+</p>
+
+<p>
+  <strong>star:</strong>
+  <%= @player.star %>
+</p>
+
+<%= image_tag "characters/" + @player.file %> 
+
+<br>
+
+<%= link_to 'Back', players_path %>

@@ -41,6 +41,15 @@ class TeamsController < ApplicationController
   		end
 	end
 
+	def add_player
+		params.require(:team).permit(:player)
+		@team = Team.find(params[:id])
+		@player = params:player
+		@team.players << @player
+		@player.teams << @team
+	end
+
+
 	def destroy
    		@team = Team.find(params[:id])
    		@team.destroy

@@ -10,9 +10,9 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
   has_secure_password
 
-  #allows pictures using paperclip/some validations
+  #allows pictures using paperclip and some validations
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, 
-  :default_url => ActionController::Base.helpers.asset_path(':style/blank_profile_pic.png')
+  :default_url => ':style/blank_profile_pic.png'
   validates_attachment :avatar,
   content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
