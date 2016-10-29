@@ -22,42 +22,7 @@
         <%= f.label :text %><br>
         <%= f.text_area :text, class: 'form-control' %>
 
-        <div class="row">
-          <div class="col-md-4">
-            <br>
-            <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
-            <br>
-            <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
-            <br>
-            <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
-            <br>
-
-          </div>
-          <div class="col-md-4">
-            <br>
-            <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
-            <br>
-            <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
-            <br>
-            <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
-            <br>
-         
-          </div>
-          <div class="col-md-4">
-            <br>
-            <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
-            <br>
-            <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
-            <br>
-            <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
-            <br>
-
-          </div>
-          <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
-            <br>
-        </div>
-
-
+        <%= render 'layouts/team_new' %>
     
         <%= f.submit "Create Team", class: "btn btn-primary" %>
         <% end %>
