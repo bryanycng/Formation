@@ -47,6 +47,12 @@ textarea {
   max-height: 209px;
 }
 
+.tab-pane{
+  height:700px;
+  overflow-y:scroll;
+  width:100%;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {

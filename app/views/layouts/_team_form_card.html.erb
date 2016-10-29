@@ -1,0 +1,12 @@
+<%-#layout for the cards formation area on the new team page-%>
+<div class="row">
+  <% (0..2).each do |i| %>
+    <div class="col-md-4">
+      <% (0..2).each do |i| %>
+        <br>
+        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
+      <% end %>
+    </div> 
+  <% end %>
+</div>
+

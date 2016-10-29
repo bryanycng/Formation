@@ -1,0 +1,16 @@
+<%-#layout for the 'pick players' area on the right side of the new team page-%>
+<br>
+<br>
+<div class= "row">	
+  <div class="tab-pane">
+  <% (0..2).each do |i| %>
+    <div class="col-md-4">
+      <% (0..2).each do |i| %>
+        <br>
+        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
+      <% end %>
+    </div> 
+  <% end %>
+  </div>
+</div>
+
