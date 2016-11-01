@@ -1,12 +1,16 @@
 <%-#layout for the cards formation area on the new team page-%>
 <div class="row">
+  <%-#set id for cards-%>
+  <% id = 0 %> 
   <% (0..2).each do |i| %>
     <div class="col-md-4">
-      <% (0..2).each do |i| %>
+      <% (0..2).each do |j| %>
         <br>
-        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"]) %>
+        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => id+j) %>
+         <%=  id+(j*3)%>
       <% end %>
     </div> 
+    <% id += 1 %>
   <% end %>
 </div>
 
