@@ -4,13 +4,13 @@
 <br>
 <div class= "row">	
   <div class="tab-pane">
-  <% player = 0 %>
+  <% player = 0 %>  
   <% n = Player.count %>
   <% if n <= 3%>
     <% (0..2).each do |i| %>
       <div class="col-md-4">
         <br>
-          <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => "player" + i.to_s) %>
+          <%= image_tag(Player.find_by(id: (i + 1)).file, :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => "player" + i.to_s) %>
           <%=  i%>
       </div>
     <% end %>
@@ -19,9 +19,9 @@
     <% (0..2).each do |i| %>
       <div class="col-md-4">
       <% (0..(n/3).floor).each do |j| %>
+      <% next if player+(j*3)+1 > Player.count %>    
           <br>
-          <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => "player" + (player + j).to_s) %>
-          <%=  player+(j*3)%>
+          <%= image_tag("characters/" + Player.find_by(id: (player+(j*3)+1)).file, :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => "player" + (player + j).to_s) %>
       <% end %>
       </div> 
       <% player += 1 %>
@@ -29,13 +29,3 @@
   <% end %>
   </div>
 </div>
-
-
-<script>
-i = 0
-Player.all.forEach()(function(player))
-$(this).find("player" + i).attr("src" , "<%= image_path "player.name"%>"); 
-console.log(player.name)
-i++
-</script>
-

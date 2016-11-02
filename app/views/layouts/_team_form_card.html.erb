@@ -2,12 +2,21 @@
 <div class="row">
   <%-#set id for cards-%>
   <% id = 0 %> 
+  <% position = "front" %>
   <% (0..2).each do |i| %>
     <div class="col-md-4">
       <% (0..2).each do |j| %>
         <br>
         <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => id+j) %>
-         <%=  id+(j*3)%>
+        <% if j == 0 %>
+          <center> front </center>
+        <% end %>
+        <% if j == 1 %>
+           <center> mid </center>
+        <% end %>
+        <% if j == 2 %>
+           <center> bot </center>
+        <% end %>
       <% end %>
     </div> 
     <% id += 1 %>
