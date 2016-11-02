@@ -41,12 +41,15 @@ class TeamsController < ApplicationController
   		end
 	end
 
-	def add_player
+	def add_players
 		params.require(:team).permit(:player)
 		@team = Team.find(params[:id])
-		@player = params:player
-		@team.players << @player
-		@player.teams << @team
+		@players = params:players
+		@team.players << @players
+		@players.each do |player|
+   			@player.teams << @team
+		end
+		
 	end
 
 

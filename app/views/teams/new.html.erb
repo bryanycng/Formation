@@ -1,43 +1,23 @@
 <h1>New Team</h1>
-<div class="container">
-  <div class="row">
-     <div class="col-md-5">
-        <%= form_for :team, url: teams_path do |f| %>
-        <% if @team.errors.any? %>
-          <div id="error_explanation">
-            <h2>
-              <%= pluralize(@team.errors.count, "error") %> prohibited
-              this team from being saved:
-            </h2>
-            <ul>
-              <% @team.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <%= f.label :title %><br>
-        <%= f.text_field :title, class: 'form-control' %>
-   
-        <%= f.label :text %><br>
-        <%= f.text_area :text, class: 'form-control' %>
 
-        <%= render 'layouts/team_form_card' %><br>
-        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => "9") %>
-        <center> gk </center>
-
-        <%= f.submit "Create Team", class: "btn btn-primary" %>
-        <% end %>
-        <%= link_to 'Back', teams_path %>
-      </div>
-      <div class="col-md-2">
-        <br><br><br><br>
-        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => "10") %>
-        <center> support </center>
-      </div>
-      <div class="col-md-5">
-        <h1>Pick Players Here!</h1>
-        <%= render 'layouts/team_pick_players' %><br>
-      </div>
+<%= form_for :team, url: teams_path do |f| %>
+<% if @team.errors.any? %>
+	<div id="error_explanation">
+    	<h2>
+        <%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved: </h2>
+           <ul>
+           	 <% @team.errors.full_messages.each do |msg| %>
+               <li><%= msg %></li>
+               <% end %>
+           </ul>
     </div>
-</div>
+<% end %>
+<%= f.label :title %><br>
+<%= f.text_field :title, class: 'form-control' %>
+   
+<%= f.label :text %><br>
+<%= f.text_area :text, class: 'form-control' %>
+
+<%= f.submit "Create Team", class: "btn btn-primary" %>
+<% end %>
+<%= link_to 'Back', teams_path %>

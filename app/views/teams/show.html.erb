@@ -12,6 +12,7 @@
   <strong>Text:</strong>
   <%= @team.text %>
 </p>
+<%= link_to 'add players', add_players_team_path(@team) %><br>
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
 
