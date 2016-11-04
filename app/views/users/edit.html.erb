@@ -1,7 +1,7 @@
 <h1>Edit Profile</h1>
 
-<%= form_for @user, url: {action: "update"}, method: :PATCH, html: { multipart: true } do |f| %>
-  <%= f.label :name %>
+<%= form_for @user, url: user_path, method: :PATCH, html: { multipart: true } do |f| %>
+      <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.label :email %>
