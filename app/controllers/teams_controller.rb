@@ -42,14 +42,14 @@ class TeamsController < ApplicationController
 	end
 
 	def add_players
-		params.require(:team).permit(:player)
+		params.require(:team).permit(:players => [])
 		@team = Team.find(params[:id])
-		@players = params:players
-		@team.players << @players
+		@players = params[:team][:players] 
 		@players.each do |player|
-   			@player.teams << @team
+			next if Player.find_by(file: player + ".png").nil? == true
+			@team.players << Player.find_by(file: player +".png")
 		end
-		
+		redirect_to @team
 	end
 
 

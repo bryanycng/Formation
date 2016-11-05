@@ -28,16 +28,17 @@
 
 
 <h1>Add Players</h1>
+
 <div class="container">
   <div class="row">
      <div class="col-md-5">
         <%= render 'layouts/team_form_card' %><br>
-        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => "9") %>
+        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size", "card"], :id => "9") %>
         <center> gk </center>
      </div>
      <div class="col-md-2">
         <br><br><br><br>
-        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => "10") %>
+        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size", "card"], :id => "10") %>
         <center> support </center>
       </div>
       <div class="col-md-5">
@@ -47,5 +48,31 @@
     </div>
 </div>
 
+<%= form_for :team, url: team_path(@team), action: "add_players" do |f| %>
+  <% (0..9).each do |i| %>
+    <%= f.hidden_field :players, :multiple => true,:id => "hidden" + i.to_s, :value => "" %>
+  <% end %>
+  <%= f.submit "Add Players", class: "btn btn-primary" %>
+<% end %>
+
  
 <%= link_to 'Back', teams_path %>
+
+<script>
+$('.card').click(function() { 
+    var highlighted = $('.highlight-image');
+    $(this).toggleClass("card").toggleClass("highlight-image");
+    if (highlighted.length > 0) {
+      for (var i = 0, i > 2, i++) {
+        alert("hi");
+        } 
+    }
+});
+</script>
+
+<script>
+hightlighted.forEach(function(card)) {
+          if (card.id != $(this).id) {
+            card.toggleClass("card").toggleClass("highlight-image");
+          }
+</script>

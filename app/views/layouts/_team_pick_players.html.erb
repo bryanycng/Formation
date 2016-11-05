@@ -10,7 +10,7 @@
     <% (0..2).each do |i| %>
       <div class="col-md-4">
         <br>
-          <%= image_tag(Player.find_by(id: (i + 1)).file, :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => "player" + i.to_s) %>
+          <%= image_tag(Player.find_by(id: (i + 1)).file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "pick"], :id => "player" + i.to_s) %>
           <%=  i%>
       </div>
     <% end %>
@@ -21,7 +21,7 @@
       <% (0..(n/3).floor).each do |j| %>
       <% next if player+(j*3)+1 > Player.count %>    
           <br>
-          <%= image_tag("characters/" + Player.find_by(id: (player+(j*3)+1)).file, :alt => "rss feed" , :class => ["displayed" , "character-image-size"], :id => "player" + (player + j).to_s) %>
+          <%= image_tag("characters/" + Player.find_by(id: (player+(j*3)+1)).file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "pick"], :id => "player" + (player + j).to_s) %>
       <% end %>
       </div> 
       <% player += 1 %>

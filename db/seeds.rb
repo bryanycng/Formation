@@ -6,10 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 #add players to the database
-
-
 Dir.foreach(Rails.root + "app/assets/text") do |files|
 	next if files == '.' or files == '..'
 	name = "default"

@@ -12,6 +12,11 @@
   <strong>Text:</strong>
   <%= @team.text %>
 </p>
+<h1> Players </h1>
+<% @team.players.each do |player| %>
+	<%= player.name %> <br>
+<% end %>		
+
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
 
