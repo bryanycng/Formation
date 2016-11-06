@@ -64,7 +64,7 @@ $('.card').click(function() {
     var highlighted = $('.highlight-image');
     $(this).toggleClass("card").toggleClass("highlight-image");
     if (highlighted.length > 0) {
-      highlighted.each(function(card){
+      highlighted.each(function(){
           if (clicked.id != this.id) {
             $(this).toggleClass("card").toggleClass("highlight-image");
           }
@@ -73,3 +73,20 @@ $('.card').click(function() {
 });
 </script>
 
+<script>
+$('.pick').click(function() { 
+    var src = this.src;
+    var highlighted = $('.highlight-image');
+    var card = $('.card');
+    if (highlighted.length > 0) {
+      card.each(function(){
+        if (this.src == src) {
+          // add blank player src here, probably add default players to database this.src = ;
+        }
+     $('.highlight-image').attr("src", src);
+    })
+  }
+});
+</script>
+
+;
