@@ -60,19 +60,16 @@
 
 <script>
 $('.card').click(function() { 
+    var clicked = $(this);
     var highlighted = $('.highlight-image');
     $(this).toggleClass("card").toggleClass("highlight-image");
     if (highlighted.length > 0) {
-      for (var i = 0, i > 2, i++) {
-        alert("hi");
-        } 
+      highlighted.each(function(card){
+          if (clicked.id != this.id) {
+            $(this).toggleClass("card").toggleClass("highlight-image");
+          }
+        }) 
     }
 });
 </script>
 
-<script>
-hightlighted.forEach(function(card)) {
-          if (card.id != $(this).id) {
-            card.toggleClass("card").toggleClass("highlight-image");
-          }
-</script>
