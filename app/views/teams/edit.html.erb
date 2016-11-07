@@ -33,12 +33,12 @@
   <div class="row">
      <div class="col-md-5">
         <%= render 'layouts/team_form_card' %><br>
-        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size", "card"], :id => "9") %>
+        <%= image_tag("characters/" + @team.players[8].file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "card"], :id => "8") %>
         <center> gk </center>
      </div>
      <div class="col-md-2">
         <br><br><br><br>
-        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size", "card"], :id => "10") %>
+        <%= image_tag("characters/" + @team.players[9].file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "card"], :id => "9") %>
         <center> support </center>
       </div>
       <div class="col-md-5">
@@ -48,11 +48,11 @@
     </div>
 </div>
 
-<%= form_for :team, url: team_path(@team), action: "add_players" do |f| %>
+<%= form_for :team, url: team_path(@team), action: "change_players" do |f| %>
   <% (0..9).each do |i| %>
-    <%= f.hidden_field :players, :multiple => true,:id => "hidden" + i.to_s, :value => "" %>
+    <%= f.hidden_field :players, :multiple => true,:id => "hidden" + i.to_s, :value => @team.players[i] %>
   <% end %>
-  <%= f.submit "Add Players", class: "btn btn-primary" %>
+  <%= f.submit "Change Players", class: "btn btn-primary" %>
 <% end %>
 
  
@@ -78,16 +78,20 @@ $('.pick').click(function() {
     var src = this.src;
     var highlighted = $('.highlight-image');
     var highlighted_src = highlighted.attr("src");
+    var highlighted_id = highlighted.attr("id");
+    var highlighted_name = highlighted.attr("name");
+    var name = this.name;
     var card = $('.card');
+
     if (highlighted.length > 0) {
-      card.each(function(){
-        if (this.src == src) {
-         this.src = highlighted_src;
-        }
-     $('.highlight-image').attr("src", src);
-    })
-  }
+        card.each(function(){
+            if (this.src == src) {
+               this.src = highlighted_src;
+               $('#hidden' + this.id).attr("value",highlighted_name);
+            }
+        })
+        $('.highlight-image').attr("src", src);
+        $('#hidden' + highlighted_id).attr("value", name);
+    }
 });
 </script>
-
-;

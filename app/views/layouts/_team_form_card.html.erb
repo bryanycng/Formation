@@ -7,7 +7,7 @@
     <div class="col-md-4">
       <% (0..2).each do |j| %>
         <br>
-        <%= image_tag("blank_image.jpg", :alt => "rss feed" , :class => ["displayed" , "character-image-size", "card"], :id => id+j) %>
+        <%= image_tag("characters/" + @team.players[id+(j*3)].file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "card"], :id => id+(j*3))%>
         <% if j == 0 %>
           <center> front </center>
         <% end %>

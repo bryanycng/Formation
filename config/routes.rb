@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :teams
-  post    '/teams/:id',   to: 'teams#add_players'
+  post    '/teams/:id',   to: 'teams#change_players'
   resources :users do
   	member do
   	 	get 'teams'

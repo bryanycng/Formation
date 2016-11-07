@@ -27,7 +27,7 @@
       <% p = Player.find_by(id: (player+(j*3)+1)) %> 
       <% next if p.star == 1 %>  
           <br>
-          <%= image_tag("characters/" + p.file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "pick"], :id => "player" + (player + j).to_s) %>
+          <%= image_tag("characters/" + p.file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "pick"], :id => "player" + (player + j).to_s, :name => p.file[0..(p.file.length-5)]) %>
       <% end %>
       </div> 
       <% player += 1 %>

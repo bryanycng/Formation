@@ -19,11 +19,20 @@
 <div class="col-md-1">
 <% @team.players.each do |player| %>
 	<%= player.name %> <br>
+	<%= player.file%>
 <% end %>	
 </div>
 
 <div class="col-md-6 col-md-offset-2">
-<%= render 'layouts/team_form_card' %><br>
+	<%= render 'layouts/team_form_card' %><br>
+	<%= image_tag("characters/" + @team.players[8].file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "card"], :id => "8") %>
+	<center> gk </center>
+</div>
+<div class="col-md-2">
+<br><br><br><br>
+	<%= image_tag("characters/" + @team.players[9].file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "card"], :id => "9") %>
+	<center> support </center>
+</div>
 </div>
 </div>
 
@@ -31,3 +40,4 @@
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
 </div>
+
