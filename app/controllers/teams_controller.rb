@@ -50,9 +50,18 @@ class TeamsController < ApplicationController
 		@players = params[:team][:players] 
 		@team.players.delete_all
 		@players.each do |player|
-			next if Player.find_by(file: player + ".png").nil? == true
-			@team.players << Player.find_by(file: player +".png")
-			i+= 1
+			if Player.find_by(file: player + ".png").nil? == true
+				i+= 1
+			else @team.players << Player.find_by(file: player +".png")
+			end
+		if i > 0
+			(0..9).each do |count|
+				if @team.players.length < 10 
+					@team.players << Player.find_by(file: "default" + count.to_s + ".png")
+				end
+			end
+		end
+
 		end
 		redirect_to @team
 	end
