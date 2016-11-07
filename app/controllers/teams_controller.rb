@@ -23,7 +23,9 @@ class TeamsController < ApplicationController
 	def create
   		@team = Team.new(team_params)
   		@team.user = current_user
- 
+  		(0..9).each do |i|
+  			@team.players << Player.find_by(file: "Default" + i.to_s + ".png")
+ 		end
 	  	if @team.save
   			redirect_to @team
 		else 

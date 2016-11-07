@@ -5,12 +5,16 @@
 <div class= "row">	
   <div class="tab-pane">
   <% player = 0 %>  
-  <% n = Player.count %>
+  <%-# the - 10 accounts for the 10 blank player defaults-%>
+  <%-# Skip if default player so it doesnt display 10 blank photos in selection-%>
+  <% n = Player.count-10 %>
   <% if n <= 3%>
     <% (0..2).each do |i| %>
+    <% p = Player.find_by(id: (i + 1)) %> 
+    <% next if p.star == 1 %>
       <div class="col-md-4">
         <br>
-          <%= image_tag(Player.find_by(id: (i + 1)).file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "pick"], :id => "player" + i.to_s) %>
+          <%= image_tag("characters/" + p.file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "pick"], :id => "player" + i.to_s) %>
           <%=  i%>
       </div>
     <% end %>
@@ -19,9 +23,11 @@
     <% (0..2).each do |i| %>
       <div class="col-md-4">
       <% (0..(n/3).floor).each do |j| %>
-      <% next if player+(j*3)+1 > Player.count %>    
+      <% next if player+(j*3)+1 > Player.count %>  
+      <% p = Player.find_by(id: (player+(j*3)+1)) %> 
+      <% next if p.star == 1 %>  
           <br>
-          <%= image_tag("characters/" + Player.find_by(id: (player+(j*3)+1)).file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "pick"], :id => "player" + (player + j).to_s) %>
+          <%= image_tag("characters/" + p.file, :alt => "rss feed" , :class => ["displayed" , "character-image-size", "pick"], :id => "player" + (player + j).to_s) %>
       <% end %>
       </div> 
       <% player += 1 %>

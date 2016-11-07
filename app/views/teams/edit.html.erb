@@ -77,11 +77,12 @@ $('.card').click(function() {
 $('.pick').click(function() { 
     var src = this.src;
     var highlighted = $('.highlight-image');
+    var highlighted_src = highlighted.attr("src");
     var card = $('.card');
     if (highlighted.length > 0) {
       card.each(function(){
         if (this.src == src) {
-          // add blank player src here, probably add default players to database this.src = ;
+         this.src = highlighted_src;
         }
      $('.highlight-image').attr("src", src);
     })

@@ -1,5 +1,6 @@
+<div class= "row">
 <p>
-  <strong>User:</strong>
+  <strong>Team Made by:</strong>
   <%= @team.user.name %>
 </p>
 
@@ -12,11 +13,21 @@
   <strong>Text:</strong>
   <%= @team.text %>
 </p>
-<h1> Players </h1>
+<h1> Team </h1>
+</div>
+<div class= "row">	
+<div class="col-md-1">
 <% @team.players.each do |player| %>
 	<%= player.name %> <br>
-<% end %>		
+<% end %>	
+</div>
 
+<div class="col-md-6 col-md-offset-2">
+<%= render 'layouts/team_form_card' %><br>
+</div>
+</div>
+
+<div class= "row">
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
-
+</div>
